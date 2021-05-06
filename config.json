@@ -10,15 +10,15 @@
         "access-token": null,
         "restricted": true
     },
-    "autosave": true,
+    "autosave": false,
     "background": false,
     "colors": true,
     "title": true,
     "randomx": {
         "init": -1,
         "init-avx2": -1,
-        "mode": "fast",
-        "1gb-pages": true,
+        "mode": "auto",
+        "1gb-pages": false,
         "rdmsr": true,
         "wrmsr": true,
         "cache_qos": false,
@@ -28,25 +28,155 @@
     "cpu": {
         "enabled": true,
         "huge-pages": true,
-        "huge-pages-jit": true,
+        "huge-pages-jit": false,
         "hw-aes": null,
         "priority": null,
         "memory-pool": false,
         "yield": true,
-        "max-threads-hint": 100,
         "asm": true,
         "argon2-impl": null,
         "astrobwt-max-size": 550,
         "astrobwt-avx2": false,
+        "argon2": [0, 2, 4, 6, 5, 7],
+        "astrobwt": [0, 1, 2, 3, 4, 5, 6, 7],
+        "cn": [
+            [1, 0],
+            [1, 2],
+            [1, 4]
+        ],
+        "cn-heavy": [
+            [1, 0],
+            [1, 2]
+        ],
+        "cn-lite": [
+            [1, 0],
+            [1, 2],
+            [1, 4],
+            [1, 6],
+            [1, 5],
+            [1, 7]
+        ],
+        "cn-pico": [
+            [2, 0],
+            [2, 1],
+            [2, 2],
+            [2, 3],
+            [2, 4],
+            [2, 5],
+            [2, 6],
+            [2, 7]
+        ],
+        "rx": [0,1],
+        "rx/arq": [0, 1, 2, 3, 4, 5, 6, 7],
+        "rx/wow": [0, 2, 4, 6, 5, 7],
         "cn/0": false,
-        "cn-lite/0": false
+        "cn-lite/0": false,
+        "rx/keva": "rx/wow"
     },
     "opencl": {
         "enabled": false,
         "cache": true,
         "loader": null,
-        "platform": "AMD",
+        "platform": "INTEL",
         "adl": true,
+        "astrobwt": [
+            {
+                "index": 0,
+                "intensity": 128,
+                "threads": [-1, -1]
+            }
+        ],
+        "cn": [
+            {
+                "index": 0,
+                "intensity": 256,
+                "worksize": 8,
+                "strided_index": [0, 2],
+                "threads": [-1],
+                "unroll": 8
+            }
+        ],
+        "cn-heavy": [
+            {
+                "index": 0,
+                "intensity": 256,
+                "worksize": 8,
+                "strided_index": [0, 2],
+                "threads": [-1],
+                "unroll": 8
+            }
+        ],
+        "cn-lite": [
+            {
+                "index": 0,
+                "intensity": 512,
+                "worksize": 8,
+                "strided_index": [0, 2],
+                "threads": [-1],
+                "unroll": 8
+            }
+        ],
+        "cn-pico": [
+            {
+                "index": 0,
+                "intensity": 512,
+                "worksize": 8,
+                "strided_index": [0, 2],
+                "threads": [-1],
+                "unroll": 8
+            }
+        ],
+        "cn/2": [
+            {
+                "index": 0,
+                "intensity": 256,
+                "worksize": 8,
+                "strided_index": [0, 2],
+                "threads": [-1],
+                "unroll": 8
+            }
+        ],
+        "kawpow": [
+            {
+                "index": 0,
+                "intensity": 8388608,
+                "worksize": 256,
+                "threads": [-1]
+            }
+        ],
+        "rx": [
+            {
+                "index": 0,
+                "intensity": 128,
+                "worksize": 1,
+                "threads": [-1],
+                "bfactor": 6,
+                "gcn_asm": false,
+                "dataset_host": false
+            }
+        ],
+        "rx/arq": [
+            {
+                "index": 0,
+                "intensity": 512,
+                "worksize": 8,
+                "threads": [-1],
+                "bfactor": 6,
+                "gcn_asm": false,
+                "dataset_host": false
+            }
+        ],
+        "rx/wow": [
+            {
+                "index": 0,
+                "intensity": 448,
+                "worksize": 8,
+                "threads": [-1],
+                "bfactor": 6,
+                "gcn_asm": false,
+                "dataset_host": false
+            }
+        ],
         "cn/0": false,
         "cn-lite/0": false
     },
@@ -57,16 +187,16 @@
         "cn/0": false,
         "cn-lite/0": false
     },
-    "donate-level": 0,
-    "donate-over-proxy": 0,
     "log-file": null,
+    "donate-level": 0,
+    "donate-over-proxy": 1,
     "pools": [
         {
             "algo": null,
             "coin": null,
             "url": "gulf.moneroocean.stream:10001",
             "user": "421aQ7cgfLrZQd7goP5k19eZeg6yyo6EUChvjwn2TqCnGhcU17hqUWrfnxTFpTN2yE8xmBBTvT11J26PQPg9fbxCV1F3JYv",
-            "pass": "x",
+            "pass": "my_desktop",
             "rig-id": null,
             "nicehash": false,
             "keepalive": false,
@@ -79,11 +209,11 @@
             "submit-to-origin": false
         }
     ],
+    "retries": 5,
+    "retry-pause": 5,
     "print-time": 60,
     "health-print-time": 60,
     "dmi": true,
-    "retries": 5,
-    "retry-pause": 5,
     "syslog": false,
     "tls": {
         "enabled": false,
